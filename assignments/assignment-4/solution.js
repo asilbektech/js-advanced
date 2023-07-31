@@ -11,7 +11,7 @@ class Person {
     }
 
     getRole() {
-        return `Person`;
+        return "Person";
     }
 
     static countInstances() {
