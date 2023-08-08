@@ -51,5 +51,6 @@ function dividing(num1, num2) {
 
 console.log(calculate(10, 3, adding));
 console.log(calculate(20, 10, subtracting));
+console.log("---------");
 console.log(calculate(4, 4, multiplying));
 console.log(calculate(8, 2, dividing));
