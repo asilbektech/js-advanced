@@ -24,6 +24,7 @@ function hipsterfy(sentence) {
 }
 
 console.log(hipsterfy("proper")); // propr
+console.log(hipsterfy("proper tonic panther"));
 
 // Problem-3
 
@@ -32,7 +33,7 @@ console.log(hipsterfy("proper")); // propr
 function countAdjacentSums(arr, n) {
     let count = 0;
 
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length - 1; i++) {
         if (arr[i] + arr[i + 1] === n) {
             count++;
         }
@@ -40,7 +41,7 @@ function countAdjacentSums(arr, n) {
     return count;
 }
 
-console.log(countAdjacentSums([1, 5, 1], 6)); // 2 // 1+5 = n (6) // 5+1 = 6
+console.log(countAdjacentSums([1, 5], 6)); // 2 // 1+5 = n (6) // 5+1 = 6
 
 // Problem-4
 
