@@ -116,3 +116,16 @@ function favoriteColorReminder(name, favoriteColor) {
 
 const johnsColor = favoriteColorReminder("John", "Blue");
 johnsColor(); // 'John's favorite color is Blue.'
+
+function removeNumber(arr, num) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== num) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+
+console.log(removeNumber([1, 2, 5, 3, 8], 3));
