@@ -24,19 +24,54 @@ class Inventory {
     removeGood(id) {
         for (let i = 0; i < this.goods.length; i++) {
             if (this.goods[i].id === id) {
-                this.goods.splice(i, 1);
-                break;
+                return this.goods.splice(i, 1);
+            }
+        }
+        throw new Error("Good not found in the inventory");
+    }
+
+    updateGood(id, updatedGood) {
+        for (let i = 0; i < this.goods.length; i++) {
+            if (this.goods[i].id === id) {
+                return (this.goods[i] = updatedGood);
             }
         }
         throw new Error("Good not found in the inventory.");
     }
+
+    viewGoods() {
+        return this.goods;
+    }
+
+    searchGoodByName(name) {
+        const matchedGoods = [];
+
+        let i = 0;
+        while (i < this.goods.length) {
+            if (this.goods[i].name === name) {
+                matchedGoods.push(this.goods[i]);
+            }
+            i++;
+        }
+        return matchedGoods;
+    }
 }
 
+const apple1 = new Good(1, "Apple", 50, 0.5);
+const banana = new Good(2, "Banana", 40, 0.6);
+const orange = new Good(3, "Orange", 60, 1);
 const inventory = new Inventory();
+const updatedGood = new Good(1, "Apple", 60, 0.8);
 
-inventory.addGood(new Good(1, "Apple", 50, 0.5));
-inventory.removeGood(new Good(2, "Banana", 30, 0.3));
+inventory.addGood(apple1);
 
-console.log(inventory.addGood(new Good(1, "Apple", 50, 0.5)));
-console.log(inventory.removeGood(new Good(2, "Banana", 30, 0.3)));
-console.log(inventory.removeGood(new Good(2, "Banana", 30, 0.3)));
+inventory.addGood(banana);
+inventory.addGood(orange);
+
+inventory.removeGood(2);
+console.log(inventory.viewGoods());
+
+inventory.updateGood(1, updatedGood);
+console.log(inventory.viewGoods());
+
+console.log(inventory.searchGoodByName("Apple"));
