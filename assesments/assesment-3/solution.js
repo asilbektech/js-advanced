@@ -169,5 +169,33 @@ console.log(updatedItems);
 // Winning Conditions: Check for a winner based on size symbols in a row horizontally, vertically, or diagonally.
 
 function checkWinner(board) {
-    for (let i = 0; i < 3; i++) {}
+    const conditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    for (let i = 0; i < conditions.length; i++) {
+        const [a, b, c] = conditions[i];
+
+        if (
+            board[a] &&
+            board[a] === board[b] &&
+            board[a] === board[c] &&
+            board[a] !== ""
+        ) {
+            return board[a];
+        }
+    }
+    return null;
 }
+
+const board = ["X", "O", "X", "X", "X", "O", "", "O", "X"];
+const winner = checkWinner(board);
+
+console.log(winner);
